@@ -1,0 +1,44 @@
+/** Reset **/
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+/** Global styles **/
+
+* { box-sizing: border-box; }
+body { font-size: 16px; font-family: "Open Sans", sans-serif; line-height: 1.4rem; background: #63a69f; }
+h1, h2, h3 { font-weight: bold; color: #f2594b; margin-bottom: 1rem; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; }
+ol { list-style-type: decimal; padding-left: 20px; }
+label { display: block; }
+
+/** Custom styles **/
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.card-container {
+  background: #fff;
+  box-shadow: 4px 4px 9px -1px rgba(120, 120, 120, 1);
+}
+
+.card {
+  padding: 25px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  color: #fff;
+  background: #000;
+  line-height: 1.6rem;
+}
+
+.footer {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  text-align: center;
+}
