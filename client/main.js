@@ -19,18 +19,21 @@
   function Mp3ToPodcast() {
     this.onDomLoaded = this.onDomLoaded.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCopyClick = this.handleCopyClick.bind(this);
   }
 
   Mp3ToPodcast.prototype = {
     onDomLoaded: function() {
       this.mp3UrlInputEl = document.getElementsByClassName('main-mp3-url-input')[0];
       this.titleInputEl = document.getElementsByClassName('main-title-input')[0];
-      this.copyLabelColonEl = document.getElementsByClassName('main-copy-label-colon')[0];
+      this.podcastUrlLabelColonEl = document.getElementsByClassName('main-podcast-url-label-colon')[0];
       this.podcastUrlInputEl = document.getElementsByClassName('main-podcast-url-input')[0];
+      this.podcastUrlCopyButtonEl = document.getElementsByClassName('main-podcast-url-copy-button')[0];
 
       const throttledHandleChange = throttle(this.handleChange, 100);
       this.mp3UrlInputEl.addEventListener('input', throttledHandleChange);
       this.titleInputEl.addEventListener('input', throttledHandleChange);
+      this.podcastUrlCopyButtonEl.addEventListener('click', this.handleCopyClick);
 
       this.handleChange();
     },
@@ -38,10 +41,10 @@
     handleChange: function(e) {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.titleInputEl.parentElement.classList.remove('hidden');
-        this.copyLabelColonEl.classList.remove('hidden');
+        this.podcastUrlLabelColonEl.classList.remove('hidden');
       } else {
         this.titleInputEl.parentElement.classList.add('hidden');
-        this.copyLabelColonEl.classList.add('hidden');
+        this.podcastUrlLabelColonEl.classList.add('hidden');
         this.mp3UrlInputEl.focus();
       }
 
@@ -51,6 +54,11 @@
                           '?title=' + encodeURIComponent(this.titleInputEl.value) +
                           '&mp3Url=' + encodeURIComponent(this.mp3UrlInputEl.value);
       this.podcastUrlInputEl.value = podcastUrl;
+    },
+
+    handleCopyClick: function(e) {
+      this.podcastUrlInputEl.select();
+      document.execCommand('copy');
     }
   };
 
