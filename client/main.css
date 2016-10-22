@@ -13,7 +13,7 @@ h2 { font-size: 1.2rem; }
 h3 { font-size: 1rem; }
 label { display: block; margin-top: 0.75rem; }
 label:first-of-type { margin-top: 0; }
-input, textarea { width: 100%; margin-top: 0.1rem; padding: 5px; font-size: 1rem; }
+input, textarea { width: 100%; margin-top: 0.1rem; padding: 5px; font-size: 1rem; border: 1px solid #d4d4d4; }
 a { color: #000; }
 a:hover { text-decoration: none; }
 
