@@ -30,6 +30,8 @@
       const throttledHandleChange = throttle(this.handleChange, 100);
       this.urlInputEl.addEventListener('input', throttledHandleChange);
       this.titleInputEl.addEventListener('input', throttledHandleChange);
+
+      this.handleChange();
     },
 
     handleChange: function(e) {
@@ -39,6 +41,7 @@
       } else {
         this.titleInputEl.parentElement.classList.add('hidden');
         this.copyLabelColonEl.classList.add('hidden');
+        this.urlInputEl.focus();
       }
 
       // Putting mp3Url after title ensures that when the URL is pasted into iOS
