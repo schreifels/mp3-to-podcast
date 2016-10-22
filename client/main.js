@@ -24,30 +24,30 @@
 
   Mp3ToPodcast.prototype = {
     onDomLoaded: function() {
-      this.mp3UrlInputEl = document.getElementsByClassName('mp3-url-input')[0];
-      this.mp3TitleInputEl = document.getElementsByClassName('mp3-title-input')[0];
+      this.urlInputEl = document.getElementsByClassName('main-url-input')[0];
+      this.titleInputEl = document.getElementsByClassName('main-title-input')[0];
 
       const throttledHandleInput = throttle(this.handleInput, 100);
-      this.mp3UrlInputEl.addEventListener('input', throttledHandleInput);
-      this.mp3TitleInputEl.addEventListener('input', throttledHandleInput);
+      this.urlInputEl.addEventListener('input', throttledHandleInput);
+      this.titleInputEl.addEventListener('input', throttledHandleInput);
     },
 
     toggleTitle: function(shouldShowTitle) {
       if (shouldShowTitle) {
-        this.mp3TitleInputEl.parentElement.classList.remove('hidden');
+        this.titleInputEl.parentElement.classList.remove('hidden');
       } else {
-        this.mp3TitleInputEl.parentElement.classList.add('hidden');
+        this.titleInputEl.parentElement.classList.add('hidden');
       }
     },
 
     handleInput: function(e) {
-      this.toggleTitle(!!this.mp3UrlInputEl.value);
+      this.toggleTitle(!!this.urlInputEl.value);
 
       // Putting mp3Url after title ensures that when the URL is pasted into iOS
       // Messages, the app links the full URL, even if title has special chars.
       const url = PODCAST_BASE_URL +
-                '?title=' + encodeURIComponent(this.mp3TitleInputEl.value) +
-                '&mp3Url=' + encodeURIComponent(this.mp3UrlInputEl.value);
+                '?title=' + encodeURIComponent(this.titleInputEl.value) +
+                '&mp3Url=' + encodeURIComponent(this.urlInputEl.value);
       console.log(url);
     }
   };
