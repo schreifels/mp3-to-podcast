@@ -5,13 +5,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /** Global styles **/
 
 * { box-sizing: border-box; }
-body { font-size: 16px; font-family: "Open Sans", sans-serif; line-height: 1.4rem; background: #63a69f; }
-h1, h2, h3 { font-weight: bold; color: #f2594b; margin-bottom: 1rem; }
+html { font-size: 16px; }
+body { font-family: "Open Sans", sans-serif; font-weight: 300; line-height: 1.4rem; background: #63a69f; }
+h1, h2, h3 { font-weight: 400; color: #f2594b; margin-bottom: 1rem; }
 h1 { font-size: 1.6rem; }
 h2 { font-size: 1.2rem; }
 h3 { font-size: 1rem; }
-label { display: block; }
-input, textarea { width: 100%; padding: 5px; font-size: 1rem; }
+label { display: block; margin-top: 0.75rem; }
+label:first-of-type { margin-top: 0; }
+input, textarea { width: 100%; margin-top: 0.1rem; padding: 5px; font-size: 1rem; }
 
 /** Custom styles **/
 
@@ -56,7 +58,6 @@ input, textarea { width: 100%; padding: 5px; font-size: 1rem; }
   float: left;
   border-radius: 50%;
   margin-right: 10px;
-  font-weight: bold;
   text-align: center;
   color: #fff;
   background: #f2594b;
@@ -66,14 +67,6 @@ input, textarea { width: 100%; padding: 5px; font-size: 1rem; }
   float: left;
   width: calc(100% - 1.6rem - 10px);
   padding: 0 3px 3px 0; /* Prevent :focus outline from being clipped */
-}
-
-.instructions-label {
-  margin-top: 0.5rem;
-}
-
-.instructions-label:first-of-type {
-  margin-top: 0;
 }
 
 .instructions-podcastUrlTextarea {
