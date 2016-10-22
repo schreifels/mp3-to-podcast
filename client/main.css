@@ -12,6 +12,7 @@ h2 { font-size: 1.2rem; }
 h3 { font-size: 1rem; }
 label { display: block; }
 input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
+.hidden { display: none; }
 
 /** Custom styles **/
 
