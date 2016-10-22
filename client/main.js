@@ -1,6 +1,21 @@
 (function() {
   const PODCAST_BASE_URL = 'https://tn79ww2uth.execute-api.us-east-1.amazonaws.com/prod/';
 
+  function throttle(callback, milliseconds) {
+    let timeoutSet = false;
+
+    return () => {
+      if (!timeoutSet) {
+        setTimeout(() => {
+          timeoutSet = false;
+          callback();
+        }, milliseconds);
+
+        timeoutSet = true;
+      }
+    }
+  }
+
   function Mp3ToPodcast() {
     this.onDomLoaded = this.onDomLoaded.bind(this);
     this.toggleTitle = this.toggleTitle.bind(this);
@@ -12,8 +27,9 @@
       this.mp3UrlInputEl = document.getElementsByClassName('mp3-url-input')[0];
       this.mp3TitleInputEl = document.getElementsByClassName('mp3-title-input')[0];
 
-      this.mp3UrlInputEl.addEventListener('input', this.handleInput);
-      this.mp3TitleInputEl.addEventListener('input', this.handleInput);
+      const throttledHandleInput = throttle(this.handleInput, 100);
+      this.mp3UrlInputEl.addEventListener('input', throttledHandleInput);
+      this.mp3TitleInputEl.addEventListener('input', throttledHandleInput);
     },
 
     toggleTitle: function(shouldShowTitle) {
