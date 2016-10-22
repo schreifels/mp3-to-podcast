@@ -19,12 +19,14 @@
   function Mp3ToPodcast() {
     this.onDomLoaded = this.onDomLoaded.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleExampleClick = this.handleExampleClick.bind(this);
     this.handleCopyClick = this.handleCopyClick.bind(this);
   }
 
   Mp3ToPodcast.prototype = {
     onDomLoaded: function() {
       this.instructionsEl = document.getElementsByClassName('instructions')[0];
+      this.exampleLinkEl = document.getElementsByClassName('instructions-exampleLink')[0];
       this.mp3UrlInputEl = document.getElementsByClassName('instructions-mp3UrlInput')[0];
       this.titleInputEl = document.getElementsByClassName('instructions-titleInput')[0];
       this.podcastUrlTextareaEl = document.getElementsByClassName('instructions-podcastUrlTextarea')[0];
@@ -33,12 +35,14 @@
       const throttledHandleChange = throttle(this.handleChange, 100);
       this.mp3UrlInputEl.addEventListener('input', throttledHandleChange);
       this.titleInputEl.addEventListener('input', throttledHandleChange);
+
+      this.exampleLinkEl.addEventListener('click', this.handleExampleClick);
       this.podcastUrlCopyButtonEl.addEventListener('click', this.handleCopyClick);
 
       this.handleChange();
     },
 
-    handleChange: function(e) {
+    handleChange: function() {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.instructionsEl.classList.remove('instructions-hideHideable');
       } else {
@@ -54,7 +58,14 @@
       this.podcastUrlTextareaEl.value = podcastUrl;
     },
 
-    handleCopyClick: function(e) {
+    handleExampleClick: function() {
+      this.mp3UrlInputEl.value = 'http://pd.npr.org/anon.npr-mp3/npr/atc/2011/07/20110726_atc_06.mp3';
+      this.titleInputEl.value = 'When Patents Attack!';
+      this.handleChange();
+      this.podcastUrlTextareaEl.select();
+    },
+
+    handleCopyClick: function() {
       this.podcastUrlTextareaEl.select();
       document.execCommand('copy');
     }
