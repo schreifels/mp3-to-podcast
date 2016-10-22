@@ -25,6 +25,12 @@ a:hover { text-decoration: none; }
   margin: 50px auto;
 }
 
+@media (max-width: 500px) {
+  .container {
+    margin: 0;
+  }
+}
+
 .cardContainer {
   background: #fff;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
