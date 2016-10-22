@@ -26,7 +26,7 @@
     onDomLoaded: function() {
       this.mp3UrlInputEl = document.getElementsByClassName('main-mp3-url-input')[0];
       this.titleInputEl = document.getElementsByClassName('main-title-input')[0];
-      this.podcastUrlLabelColonEl = document.getElementsByClassName('main-podcast-url-label-colon')[0];
+      this.podcastUrlHideableEls = Array.from(document.getElementsByClassName('main-podcast-url-hideable'));
       this.podcastUrlInputEl = document.getElementsByClassName('main-podcast-url-input')[0];
       this.podcastUrlCopyButtonEl = document.getElementsByClassName('main-podcast-url-copy-button')[0];
 
@@ -41,10 +41,10 @@
     handleChange: function(e) {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.titleInputEl.parentElement.classList.remove('hidden');
-        this.podcastUrlLabelColonEl.classList.remove('hidden');
+        this.podcastUrlHideableEls.forEach((el) => { el.classList.remove('hidden') });
       } else {
         this.titleInputEl.parentElement.classList.add('hidden');
-        this.podcastUrlLabelColonEl.classList.add('hidden');
+        this.podcastUrlHideableEls.forEach((el) => { el.classList.add('hidden') });
         this.mp3UrlInputEl.focus();
       }
 
