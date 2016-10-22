@@ -63,6 +63,11 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
   width: calc(100% - 1.6rem - 10px);
 }
 
+.main-list-item-content-with-inputs {
+  /* Prevent :focus outline from being clipped */
+  padding-bottom: 3px;
+}
+
 .main-list-item-content-label {
   margin-bottom: 0.5rem;
 }
