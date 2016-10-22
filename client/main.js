@@ -41,10 +41,10 @@
     handleChange: function(e) {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.titleInputEl.parentElement.classList.remove('hidden');
-        this.podcastUrlHideableEls.forEach((el) => { el.classList.remove('hidden') });
+        this.podcastUrlHideableEls.forEach((el) => { el.classList.remove('hidden'); });
       } else {
         this.titleInputEl.parentElement.classList.add('hidden');
-        this.podcastUrlHideableEls.forEach((el) => { el.classList.add('hidden') });
+        this.podcastUrlHideableEls.forEach((el) => { el.classList.add('hidden'); });
         this.mp3UrlInputEl.focus();
       }
 
