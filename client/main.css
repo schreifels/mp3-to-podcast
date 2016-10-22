@@ -62,7 +62,7 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
 .main-list-item-content {
   float: left;
   width: calc(100% - 1.6rem - 10px);
-  padding-bottom: 3px; /* Prevent :focus outline from being clipped */
+  padding: 0 3px 3px 0; /* Prevent :focus outline from being clipped */
 }
 
 .main-list-item-content-label {
