@@ -11,8 +11,7 @@ h1 { font-size: 1.6rem; }
 h2 { font-size: 1.2rem; }
 h3 { font-size: 1rem; }
 label { display: block; }
-input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
-.hidden { display: none; }
+input, textarea { width: 100%; padding: 5px; font-size: 1rem; }
 
 /** Custom styles **/
 
@@ -22,7 +21,7 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
   margin: 50px auto;
 }
 
-.card-container {
+.cardContainer {
   background: #fff;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -31,23 +30,23 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
   padding: 25px;
 }
 
-.intro {
+.card-intro {
   color: #fff;
   background: #000;
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
 
-.main-list-item {
+.instructions-li {
   overflow: auto;
   margin-bottom: 1.2rem;
 }
 
-.main-list-item:last-of-type {
+.instructions-li:last-of-type {
   margin-bottom: 0;
 }
 
-.main-list-item-bullet {
+.instructions-bullet {
   width: 1.6rem;
   line-height: 1.6rem;
   float: left;
@@ -59,23 +58,23 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
   background: #f2594b;
 }
 
-.main-list-item-content {
+.instructions-content {
   float: left;
   width: calc(100% - 1.6rem - 10px);
   padding: 0 3px 3px 0; /* Prevent :focus outline from being clipped */
 }
 
-.main-list-item-content-label {
+.instructions-label {
   margin-top: 0.5rem;
 }
 
-.main-list-item-content-label:first-of-type {
+.instructions-label:first-of-type {
   margin-top: 0;
 }
 
-.main-podcast-url-input {
-  width: 100%;
-  height: 3rem;
+.instructions-podcastUrlTextarea {
+  font-size: 0.8rem;
+  height: 3.5rem;
 }
 
 .footer {
