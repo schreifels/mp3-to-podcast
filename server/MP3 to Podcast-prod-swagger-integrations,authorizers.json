@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2016-06-05T04:55:23Z",
+    "title": "MP3 to Podcast"
+  },
+  "host": "tn79ww2uth.execute-api.us-east-1.amazonaws.com",
+  "basePath": "/prod",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "mp3Url",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "headers": {
+              "Content-Type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Content-Type": "'text/xml'"
+              },
+              "responseTemplates": {
+                "text/xml": "$input.path('$')"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n    \"mp3Url\": \"$input.params('mp3Url')\",\n    \"title\": \"$input.params('title')\"\n}"
+          },
+          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:650862341666:function:mp3ToPodcast/invocations",
+          "passthroughBehavior": "never",
+          "httpMethod": "POST",
+          "type": "aws"
+        }
+      }
+    }
+  }
+}
