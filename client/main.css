@@ -10,8 +10,8 @@ h1, h2, h3 { font-weight: bold; color: #f2594b; margin-bottom: 1rem; }
 h1 { font-size: 1.6rem; }
 h2 { font-size: 1.2rem; }
 h3 { font-size: 1rem; }
-ol { list-style-type: decimal; padding-left: 20px; }
 label { display: block; }
+input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
 
 /** Custom styles **/
 
@@ -23,7 +23,7 @@ label { display: block; }
 
 .card-container {
   background: #fff;
-  box-shadow: 4px 4px 9px -1px rgba(120, 120, 120, 1);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card {
@@ -31,14 +31,48 @@ label { display: block; }
 }
 
 .intro {
-  font-size: 1.2rem;
   color: #fff;
   background: #000;
+  font-size: 1.2rem;
   line-height: 1.6rem;
 }
 
+.main-list-item {
+  overflow: auto;
+  margin-bottom: 1.2rem;
+}
+
+.main-list-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.main-list-item-bullet {
+  width: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background: #f2594b;
+}
+
+.main-list-item-content {
+  float: left;
+  width: calc(100% - 1.6rem - 10px);
+}
+
+.main-list-item-content-label {
+  margin-bottom: 0.5rem;
+}
+
+.main-list-item-content-label:last-of-type {
+  margin-bottom: 0;
+}
+
 .footer {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 0.8rem;
   text-align: center;
 }
