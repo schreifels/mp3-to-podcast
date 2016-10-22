@@ -24,6 +24,7 @@
 
   Mp3ToPodcast.prototype = {
     onDomLoaded: function() {
+      this.instructionsEl = document.getElementsByClassName('instructions')[0];
       this.mp3UrlInputEl = document.getElementsByClassName('instructions-mp3UrlInput')[0];
       this.titleInputEl = document.getElementsByClassName('instructions-titleInput')[0];
       this.podcastUrlTextareaEl = document.getElementsByClassName('instructions-podcastUrlTextarea')[0];
@@ -39,9 +40,9 @@
 
     handleChange: function(e) {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
-        // TODO
+        this.instructionsEl.classList.remove('instructions-hideHideable');
       } else {
-        // TODO
+        this.instructionsEl.classList.add('instructions-hideHideable');
         this.mp3UrlInputEl.focus();
       }
 

@@ -37,6 +37,10 @@ input, textarea { width: 100%; padding: 5px; font-size: 1rem; }
   line-height: 1.6rem;
 }
 
+.instructions-hideHideable .instructions-hideable {
+  display: none;
+}
+
 .instructions-li {
   overflow: auto;
   margin-bottom: 1.2rem;
