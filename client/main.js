@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
   const PODCAST_BASE_URL = 'https://tn79ww2uth.execute-api.us-east-1.amazonaws.com/prod/';
 
