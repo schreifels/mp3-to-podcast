@@ -66,11 +66,11 @@ input[type="text"] { width: 100%; font-size: 1rem; padding: 5px; }
 }
 
 .main-list-item-content-label {
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.main-list-item-content-label:last-of-type {
-  margin-bottom: 0;
+.main-list-item-content-label:first-of-type {
+  margin-top: 0;
 }
 
 .main-podcast-url-input {
