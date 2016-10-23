@@ -2,13 +2,15 @@
 
 TODO
 
-## Deploying to AWS Lambda
+## Deployment
 
 ### Client-side
 
 The code in `client/` is static and can be deployed anywhere as-is.
 
 ### Server-side
+
+On the server-side, MP3 to Podcast is intended to be an Amazon Web Services Lambda function.
 
 Before you begin, generate the source code for the server:
 
