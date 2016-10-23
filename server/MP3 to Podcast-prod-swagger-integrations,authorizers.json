@@ -1,10 +1,10 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2016-06-05T04:55:23Z",
+    "version": "2016-10-23T02:25:05Z",
     "title": "MP3 to Podcast"
   },
-  "host": "tn79ww2uth.execute-api.us-east-1.amazonaws.com",
+  "host": "fiqajjljwd.execute-api.us-west-2.amazonaws.com",
   "basePath": "/prod",
   "schemes": [
     "https"
@@ -43,6 +43,12 @@
           }
         },
         "x-amazon-apigateway-integration": {
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:650862341666:function:mp3ToPodcast/invocations",
+          "passthroughBehavior": "never",
+          "httpMethod": "POST",
+          "requestTemplates": {
+            "application/json": "{\n    \"mp3Url\": \"$input.params('mp3Url')\",\n    \"title\": \"$input.params('title')\"\n}"
+          },
           "responses": {
             "default": {
               "statusCode": "200",
@@ -54,12 +60,6 @@
               }
             }
           },
-          "requestTemplates": {
-            "application/json": "{\n    \"mp3Url\": \"$input.params('mp3Url')\",\n    \"title\": \"$input.params('title')\"\n}"
-          },
-          "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:650862341666:function:mp3ToPodcast/invocations",
-          "passthroughBehavior": "never",
-          "httpMethod": "POST",
           "type": "aws"
         }
       }
