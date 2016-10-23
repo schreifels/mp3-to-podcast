@@ -6,7 +6,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 * { box-sizing: border-box; }
 html { font-size: 16px; }
-body { font-family: "Open Sans", sans-serif; font-weight: 300; line-height: 1.4rem; background: #63a69f; }
+body { font-family: "Open Sans", sans-serif; font-weight: 300; line-height: 1.4rem; background: #2f343b; }
 h1, h2, h3 { font-weight: 400; color: #f2594b; margin-bottom: 1rem; }
 h1 { font-size: 1.6rem; }
 h2 { font-size: 1.2rem; }
@@ -33,7 +33,7 @@ a:hover { text-decoration: none; }
 
 .cardContainer {
   background: #fff;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .card {
@@ -101,4 +101,8 @@ a:hover { text-decoration: none; }
   margin-top: 5px;
   font-size: 0.8rem;
   text-align: center;
+}
+
+.footer, .footer a {
+  color: #a3a3a3;
 }
