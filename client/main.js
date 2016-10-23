@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  const PODCAST_BASE_URL = 'https://tn79ww2uth.execute-api.us-east-1.amazonaws.com/prod/';
+  const PODCAST_BASE_URL = 'https://fiqajjljwd.execute-api.us-west-2.amazonaws.com/prod';
 
   function throttle(callback, milliseconds) {
     let timeoutSet = false;
