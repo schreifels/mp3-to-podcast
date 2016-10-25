@@ -26,7 +26,7 @@
   }
 
   Mp3ToPodcast.prototype = {
-    onDomLoaded: function() {
+    onDomLoaded() {
       this.instructionsEl = document.getElementsByClassName('instructions')[0];
       this.exampleLinkEl = document.getElementsByClassName('instructions-exampleLink')[0];
       this.mp3UrlInputEl = document.getElementsByClassName('instructions-mp3UrlInput')[0];
@@ -44,7 +44,7 @@
       this.handleChange();
     },
 
-    handleChange: function() {
+    handleChange() {
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.instructionsEl.classList.remove('instructions-hideHideable');
       } else {
@@ -60,14 +60,14 @@
       this.podcastUrlTextareaEl.value = podcastUrl;
     },
 
-    handleExampleClick: function() {
+    handleExampleClick() {
       this.mp3UrlInputEl.value = 'http://pd.npr.org/anon.npr-mp3/npr/atc/2011/07/20110726_atc_06.mp3';
       this.titleInputEl.value = 'When Patents Attack!';
       this.handleChange();
       this.podcastUrlTextareaEl.select();
     },
 
-    handleCopyClick: function() {
+    handleCopyClick() {
       this.podcastUrlTextareaEl.select();
       document.execCommand('copy');
     }
