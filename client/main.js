@@ -23,6 +23,7 @@
     this.handleChange = this.handleChange.bind(this);
     this.handleExampleClick = this.handleExampleClick.bind(this);
     this.handleCopyClick = this.handleCopyClick.bind(this);
+    this.hideCopySuccess = this.hideCopySuccess.bind(this);
   }
 
   Mp3ToPodcast.prototype = {
@@ -33,6 +34,7 @@
       this.titleInputEl = document.getElementsByClassName('instructions-titleInput')[0];
       this.podcastUrlTextareaEl = document.getElementsByClassName('instructions-podcastUrlTextarea')[0];
       this.podcastUrlCopyButtonEl = document.getElementsByClassName('instructions-podcastUrlCopyButton')[0];
+      this.podcastUrlCopySuccessEl = document.getElementsByClassName('instructions-podcastUrlCopySuccess')[0];
 
       const throttledHandleChange = throttle(this.handleChange, 100);
       this.mp3UrlInputEl.addEventListener('input', throttledHandleChange);
@@ -45,6 +47,8 @@
     },
 
     handleChange() {
+      this.hideCopySuccess();
+
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
         this.instructionsEl.classList.remove('instructions-hideHideable');
       } else {
@@ -70,6 +74,19 @@
     handleCopyClick() {
       this.podcastUrlTextareaEl.select();
       document.execCommand('copy');
+
+      this.hideCopySuccess();
+      this.podcastUrlCopySuccessEl.classList.add('instructions-podcastUrlCopySuccess-shown');
+      this.hideCopySuccessTimeout = setTimeout(this.hideCopySuccess, 5000);
+    },
+
+    hideCopySuccess() {
+      if (this.hideCopySuccessTimeout) {
+        clearTimeout(this.hideCopySuccessTimeout);
+        delete this.hideCopySuccessTimeout;
+      }
+
+      this.podcastUrlCopySuccessEl.classList.remove('instructions-podcastUrlCopySuccess-shown');
     }
   };
 

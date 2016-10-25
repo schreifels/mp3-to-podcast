@@ -99,6 +99,18 @@ a:hover { text-decoration: none; }
   height: 3.5rem;
 }
 
+.instructions-podcastUrlCopySuccess {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  color: #008000;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.instructions-podcastUrlCopySuccess-shown {
+  opacity: 1;
+}
+
 .footer {
   margin-top: 5px;
   font-size: 0.8rem;
