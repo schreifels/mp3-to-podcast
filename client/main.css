@@ -44,7 +44,7 @@ a:hover { text-decoration: none; }
 
 .card-intro {
   color: #fff;
-  background: #000;
+  background: #000 url('header.jpg') no-repeat top/cover;
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
