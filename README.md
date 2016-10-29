@@ -1,6 +1,13 @@
 ## Introduction
 
-TODO
+MP3 to Podcast generates a custom, single-episode podcast from an MP3, allowing you to listen to one-off audio files in any podcast app.
+
+It is implemented in two parts:
+
+1. Static web client
+2. Node.js package for deployment on [AWS Lambda](https://aws.amazon.com/lambda/)
+
+The server-side works by simply translating query parameters sent from the static web page into a podcast RSS feed. You can see a live demo at http://schreifels.org/mp3-to-podcast/
 
 ## Deployment
 
