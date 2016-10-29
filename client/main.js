@@ -53,10 +53,15 @@
       this.exampleLinkEl.addEventListener('click', this.handleExampleClick);
       this.podcastUrlCopyButtonEl.addEventListener('click', this.handleCopyClick);
 
-      this.handleChange();
+      this.handleChange(true);
     },
 
-    handleChange() {
+    handleChange(skipEventTracking) {
+      if (!skipEventTracking && !this.gaInputEventSent) {
+        ga('send', 'event', 'MP3_URL', 'INPUT');
+        this.gaInputEventSent = true;
+      }
+
       this.hideCopySuccess();
 
       if (this.mp3UrlInputEl.value || this.titleInputEl.value) {
@@ -75,13 +80,17 @@
     },
 
     handleExampleClick() {
+      ga('send', 'event', 'MP3_EXAMPLE', 'CLICK');
+
       this.mp3UrlInputEl.value = 'http://pd.npr.org/anon.npr-mp3/npr/atc/2011/07/20110726_atc_06.mp3';
       this.titleInputEl.value = 'When Patents Attack!';
-      this.handleChange();
+      this.handleChange(true);
       this.podcastUrlTextareaEl.select();
     },
 
     handleCopyClick() {
+      ga('send', 'event', 'PODCAST_URL_COPY', 'CLICK');
+
       this.podcastUrlTextareaEl.select();
       document.execCommand('copy');
 
