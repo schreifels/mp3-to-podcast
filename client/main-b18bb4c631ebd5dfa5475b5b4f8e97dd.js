@@ -91,7 +91,20 @@
     handleCopyClick() {
       ga('send', 'event', 'PODCAST_URL_COPY', 'CLICK');
 
-      this.podcastUrlTextareaEl.select();
+      const isIOS = navigator.userAgent.match(/ipad|iphone/i);
+
+      if (isIOS) {
+        const range = document.createRange();
+        range.selectNodeContents(this.podcastUrlTextareaEl);
+
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        this.podcastUrlTextareaEl.setSelectionRange(0, 999999);
+      } else {
+        this.podcastUrlTextareaEl.select();
+      }
+
       document.execCommand('copy');
 
       this.hideCopySuccess();
